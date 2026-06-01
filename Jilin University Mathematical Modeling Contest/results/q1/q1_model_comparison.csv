@@ -1,0 +1,3 @@
+﻿model_version,rmse_cm,mae_cm,max_abs_error_cm,physical_rmse_cm,after_anchor_correction_rmse_cm,lambda_topo,risk_top1,risk_top3,notes
+baseline,7.020754747083565,3.6559046329993046,24.0,7.020754747083565,,0.0,L5,"L5,L8,L1",无拓扑汇流修正，仅使用路段级水量平衡 + 坡度排水修正。
+topo_corrected,2.256336572124633,1.6507370344382157,8.41971206745826,2.256336572124633,0.0,3.307736600237143e-05,L5,"L5,L2,L8",拓扑修正主要增强空间解释性，若拟合误差改善有限，则仍保留路段级水量平衡作为主模型。

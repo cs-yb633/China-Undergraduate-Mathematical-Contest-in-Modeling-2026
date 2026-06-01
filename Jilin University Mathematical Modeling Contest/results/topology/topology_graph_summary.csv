@@ -1,0 +1,2 @@
+﻿node_count,edge_count,is_connected,main_roads,high_risk_edges_if_available,lowest_elevation_edge,notes
+7,8,True,"L1,L3,L6","L5,L2,L8",L5,基于路段等级、最低标高、风险等级和连通性原则构建的简化交通拓扑网络；该拓扑服务第三问动态疏散路径优化，不代表真实测绘拓扑。

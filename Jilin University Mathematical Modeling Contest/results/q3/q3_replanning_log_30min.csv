@@ -1,0 +1,5 @@
+﻿step,current_node,current_time_min,selected_path_id,selected_node_path,selected_edge_path,next_edge,next_node,edge_enter_time_min,edge_exit_time_min,edge_depth_cm,edge_capacity,edge_safety,edge_time_min,reason
+1,N1,30.0,P2,N1->N2->N5->N6->N7,L7->L1->L3->L8,L7,N2,30.0,31.0875,7.0,0.8,0.9,1.0875,滚动重规划后选择当前最优路径首边
+2,N2,31.0875,P2,N2->N5->N6->N7,L1->L3->L8,L1,N5,31.0875,32.775,14.0,0.4,0.6,1.6874999999999998,滚动重规划后选择当前最优路径首边
+3,N5,32.775,P4,N5->N6->N7,L3->L8,L3,N6,32.775,33.8625,9.0,0.8,0.9,1.0875,滚动重规划后选择当前最优路径首边
+4,N6,33.8625,P3,N6->N7,L8,L8,N7,33.8625,36.4625,16.0,0.4,0.6,2.6,滚动重规划后选择当前最优路径首边

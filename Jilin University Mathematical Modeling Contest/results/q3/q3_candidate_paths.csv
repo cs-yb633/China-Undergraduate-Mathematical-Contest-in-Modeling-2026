@@ -1,0 +1,5 @@
+﻿path_id,origin,destination,node_path,edge_path,total_length_m,static_freeflow_time_min,contains_high_risk_edge
+P1,N1,N7,N1->N2->N5->N6->N3->N4->N7,L7->L1->L3->L6->L2->L5,2440.0,4.45,True
+P2,N1,N7,N1->N2->N5->N6->N7,L7->L1->L3->L8,1840.0,3.455,True
+P3,N1,N7,N1->N2->N3->N4->N7,L7->L4->L2->L5,1260.0,3.0700000000000003,True
+P4,N1,N7,N1->N2->N3->N6->N7,L7->L4->L6->L8,1480.0,3.3049999999999997,True

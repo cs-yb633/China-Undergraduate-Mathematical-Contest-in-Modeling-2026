@@ -1,0 +1,5 @@
+﻿scene_time_min,stage,effective_departure_min,dynamic_path,dynamic_time_min,dynamic_min_safety,dynamic_feasible,static_path,static_time_min,static_min_safety,static_feasible,L5_interrupted_45min
+30,before,30.0,L7->L1->L3->L8,6.462499999999999,0.6,True,L7->L4->L2->L5,12.4375,0.2,True,True
+30,after,25.2,L7->L4->L6->L8,5.431249999999999,0.6,True,L7->L4->L2->L5,5.733152173913041,0.6,True,False
+45,before,45.0,L7->L4->L6->L8,14.975000000000001,0.2,True,L7->L4->L2->L5,inf,0.0,False,True
+45,after,40.2,L7->L4->L2->L5,6.37880434782609,0.6,True,L7->L4->L2->L5,6.37880434782609,0.6,True,False

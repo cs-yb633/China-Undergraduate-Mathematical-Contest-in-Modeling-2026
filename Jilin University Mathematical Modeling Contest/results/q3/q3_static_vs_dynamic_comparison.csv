@@ -1,0 +1,7 @@
+﻿departure_time_min,comparison_type,path_id,node_path,edge_path,feasible,total_time_min,min_safety,avg_safety,notes
+0,static_freeflow_shortest,P3,N1->N2->N3->N4->N7,L7->L4->L2->L5,True,3.0700000000000003,1.0,1.0,静态自由流最短路对照
+0,dynamic_balanced_best,P3,N1->N2->N3->N4->N7,L7->L4->L2->L5,True,3.0700000000000003,1.0,1.0,动态均衡策略最优路
+30,static_freeflow_shortest,P3,N1->N2->N3->N4->N7,L7->L4->L2->L5,True,12.4375,0.2,0.5750000000000001,静态自由流最短路对照
+30,dynamic_balanced_best,P2,N1->N2->N5->N6->N7,L7->L1->L3->L8,True,6.462499999999999,0.6,0.75,动态均衡策略最优路
+45,static_freeflow_shortest,P3,N1->N2->N3->N4->N7,L7->L4->L2->L5,False,inf,0.0,0.0,静态自由流最短路对照
+45,dynamic_balanced_best,P4,N1->N2->N3->N6->N7,L7->L4->L6->L8,True,14.975000000000001,0.2,0.5750000000000001,动态均衡策略最优路

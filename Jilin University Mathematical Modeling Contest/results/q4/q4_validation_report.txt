@@ -1,0 +1,30 @@
+﻿Q4 validation report
+Output directory: C:\Users\马翌博\Documents\New project\results\q4
+
+[PASS] 候选方案数量是否为180 - count=180
+[PASS] Pareto方案是否非空 - count=22
+[PASS] TOPSIS推荐方案是否存在
+[PASS] 综合韧性基准是否约为0.5713 - R0=0.5713
+[PASS] 推荐方案韧性提升是否为正 - Delta_R=0.1680
+[PASS] 推荐方案年均成本是否为正 - AnnualCost=157.00
+[PASS] q4_candidate_schemes.csv 是否生成
+[PASS] q4_pareto_solutions.csv 是否生成
+[PASS] q4_topsis_ranking.csv 是否生成
+[PASS] q4_scenario_summary.csv 是否生成
+[PASS] q4_depth_reduction.csv 是否生成
+[PASS] q4_resilience_improvement.csv 是否生成
+[PASS] q4_recovery_time_comparison.csv 是否生成
+[PASS] q4_evacuation_effect.csv 是否生成
+[PASS] q4_robustness_analysis.csv 是否生成
+[PASS] q4_results.xlsx 是否生成
+[PASS] q4_model_notes.txt 是否生成
+[PASS] q4_pareto_front.png 是否生成
+[PASS] q4_topsis_ranking_bar.png 是否生成
+[PASS] q4_resilience_before_after.png 是否生成
+[PASS] q4_key_segments_depth_before_after.png 是否生成
+[PASS] q4_recovery_time_comparison.png 是否生成
+[PASS] q4_cost_resilience_scatter.png 是否生成
+[PASS] q4_robustness_boxplot.png 是否生成
+[PASS] q4_recommended_scheme_composition.png 是否生成
+
+Total warnings: 0

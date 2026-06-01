@@ -1,0 +1,13 @@
+Q2 validation report
+Output directory: C:\Users\马翌博\Documents\New project\results\q2
+
+[PASS] 主要输出文件均已生成 - all present
+[PASS] 低洼路段占比 normalized_score 为 0.76 - actual=0.760000
+[PASS] 综合韧性得分约 0.5713 - actual=0.571281
+[PASS] 抵御能力约 0.7166 - actual=0.716571
+[PASS] 恢复能力约 0.4910 - actual=0.490991
+[PASS] 适应能力约 0.4958 - actual=0.495765
+[PASS] 障碍度第一为积水消退半衰期 - actual=积水消退半衰期
+[PASS] q2_results.xlsx 包含增强输出 sheet - sheets=['indicator_normalized', 'resilience_score', 'obstacle_degree', 'weak_links', 'weak_roads', 'weight_sensitivity', 'diagnosis_table']
+
+Total warnings: 0

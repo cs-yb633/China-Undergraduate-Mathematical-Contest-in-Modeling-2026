@@ -1,0 +1,49 @@
+第三问模型说明与论文可用结论
+
+一、模型名称
+融合积水深度、通行能力与安全度的时间依赖双目标疏散路径优化模型
+
+二、边状态输入
+第三问不重新计算第一问积水，而是读取 q1_depth_5min.csv、q1_capacity_5min.csv、q1_safety_5min.csv，将 h_i(t)、C_i(t)、S_i(t) 按 edge_id 挂载到拓扑边 L1-L8 上。
+
+三、简化拓扑
+已读取 results/topology/topology_edges.csv。该拓扑是基于路段等级、最低标高、风险特征和连通性原则构建的简化交通拓扑网络，不是真实测绘拓扑。已读取附表1路段属性: C:\Users\马翌博\xwechat_files\wxid_i3gl5sn5m1p22_a8a9\msg\file\2026-05\B题附表1至6(3).xlsx
+
+四、边通行时间
+进入边 e_i 的时刻为 t，取 t_hat=5*floor(t/5)，并限制在 0 到 60 min。若 C_i(t_hat)>0，则 tau_i(t)=length_i/(v0_i*C_i(t_hat))；若 C_i(t_hat)=0，则该边不可通行。
+
+五、路径安全度
+路径 P 的安全度按实际进入每条边的时刻计算，S_min(P)=min S_i(t_i)，S_avg(P)=mean S_i(t_i)。主模型以 S_min 作为安全目标和约束解释，S_avg 作为辅助评价。
+
+六、双目标优化
+模型同时考虑总疏散时间最短和路径安全度最高。安全优先策略先筛选 S_min>=0.6 的路径，并按 (-S_min, total_time_min) 排序，即先最大化最小安全度，再最小化总时间；若无可行路径则降级为 S_min>=0.4，若仍无可行路径则退化为最高安全度路径。均衡策略采用 J(P)=alpha*T(P)/T_ref+(1-alpha)*(1-S_min(P))；时间优先策略要求 S_min>=0.2 后选时间最短。alpha=0.3 表示安全优先，alpha=0.5 表示均衡策略，alpha=0.7 表示时间优先。
+
+七、路径枚举与 Pareto 分析
+本题路段数量较少，因此采用枚举所有简单路径并逐条进行时间依赖仿真，比复杂智能算法更稳健、透明。Pareto 非支配分析用于验证不同时间-安全权衡下路径选择的合理性。
+
+八、典型 OD 与最优路径结论
+典型 OD 为 N1 到 N7，共枚举 4 条候选路径。departure_time=0 的最优结果为：安全优先：L7->L4->L2->L5，T=3.07min，Smin=1.00；均衡策略：L7->L4->L2->L5，T=3.07min，Smin=1.00；时间优先：L7->L4->L2->L5，T=3.07min，Smin=1.00。0min 出发时最短路仍可行，因为积水尚未形成，可作为早期对照。departure_time=30 的最优结果为：安全优先：L7->L1->L3->L8，T=6.46min，Smin=0.60；均衡策略：L7->L1->L3->L8，T=6.46min，Smin=0.60；时间优先：L7->L1->L3->L8，T=6.46min，Smin=0.60。30min 后随着 L2、L5 风险升高，动态路径切换到 L7-L1-L3-L8 或 L7-L4-L6-L8。45min 左右 L5 中断，静态最短路失效，必须绕行。0min 滚动重规划边序列为：L7->L4->L2->L5；论文主展示采用 30min 出发滚动重规划，边序列为：L7->L1->L3->L8。
+
+九、静态最短路失效原因
+静态最短路只考虑长度或自由流时间，但内涝条件下 L5、L2、L8 等高风险边的通行能力会随时间下降，甚至出现完全中断，因此静态最短路径可能在某些时段不可行或安全度过低。
+
+静态最短路与动态均衡策略对照如下：
+ departure_time_min          comparison_type path_id          node_path      edge_path  feasible  total_time_min  min_safety  avg_safety      notes
+                  0 static_freeflow_shortest      P3 N1->N2->N3->N4->N7 L7->L4->L2->L5      True          3.0700         1.0       1.000 静态自由流最短路对照
+                  0    dynamic_balanced_best      P3 N1->N2->N3->N4->N7 L7->L4->L2->L5      True          3.0700         1.0       1.000  动态均衡策略最优路
+                 30 static_freeflow_shortest      P3 N1->N2->N3->N4->N7 L7->L4->L2->L5      True         12.4375         0.2       0.575 静态自由流最短路对照
+                 30    dynamic_balanced_best      P2 N1->N2->N5->N6->N7 L7->L1->L3->L8      True          6.4625         0.6       0.750  动态均衡策略最优路
+                 45 static_freeflow_shortest      P3 N1->N2->N3->N4->N7 L7->L4->L2->L5     False             inf         0.0       0.000 静态自由流最短路对照
+                 45    dynamic_balanced_best      P4 N1->N2->N3->N6->N7 L7->L4->L6->L8      True         14.9750         0.2       0.575  动态均衡策略最优路
+
+十、与第一问高风险路段关系
+第一问识别的高风险边为 L5、L2、L8。第三问在候选路径、动态路径选择和验证报告中均关注这些边，尤其当 L5 在 45 min 左右中断时，动态路径会倾向于绕开 L5。
+
+十一、动态滚动重规划
+滚动重规划从当前节点和当前时刻重新枚举到终点的可行路径，选择综合代价最小路径的第一条边通行，到达下一节点后再次更新状态并重规划，直到到达终点或超过 60 min。
+
+十二、模型局限性
+拓扑为简化假设，速度参数按道路等级设定，未考虑人群拥堵互动、信号灯控制、车辆排队、实时交通管制和真实地理坐标。
+
+十三、输出状态
+图片已生成

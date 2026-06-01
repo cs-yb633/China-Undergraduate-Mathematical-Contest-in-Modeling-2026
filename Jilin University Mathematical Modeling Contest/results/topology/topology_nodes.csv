@@ -1,0 +1,8 @@
+﻿node_id,node_type,description
+N1,origin_candidate,高地边缘节点，可作为疏散起点候选
+N2,transfer,高地连接节点，连接支路与主干路
+N3,transfer,中部换乘节点，连接多条替代路径
+N4,normal,低洼连接节点，靠近 L5 低洼瓶颈
+N5,transfer,主干路连接节点，连接 L1 与 L3
+N6,transfer,主干路换乘节点，连接 L3、L6、L8
+N7,destination_candidate,低洼出口节点，可作为疏散出口或风险出口节点

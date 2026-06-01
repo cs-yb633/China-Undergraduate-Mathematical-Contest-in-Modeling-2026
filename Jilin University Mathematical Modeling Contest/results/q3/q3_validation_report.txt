@@ -1,0 +1,27 @@
+Q3 validation report
+Output directory: C:\Users\马翌博\Documents\New project\results\q3
+
+[PASS] 是否成功读取 q1_depth_5min.csv
+[PASS] 是否成功读取 q1_capacity_5min.csv
+[PASS] 是否成功读取 q1_safety_5min.csv
+[PASS] edge_id 是否包含 L1-L8
+[PASS] 是否成功读取或生成拓扑 - 读取拓扑文件
+[PASS] 拓扑是否连通
+[PASS] 是否枚举到 N1-N7 的候选路径 - count=4
+[PASS] departure_time=0 是否存在可行路径
+[PASS] alpha=0.3、0.5、0.7 是否都有结果 - alphas=[0.3, 0.5, 0.7]
+[PASS] 若 L5 在 45min 通行能力为0，则动态路径应避免 L5 - L5 capacity 45=0.0
+[PASS] q3_dynamic_paths.csv 是否生成
+[PASS] q3_replanning_log.csv 是否生成
+[PASS] q3_replanning_log_30min.csv 是否生成
+[PASS] q3_static_vs_dynamic_comparison.csv 是否生成
+[PASS] q3_results.xlsx 是否生成
+[PASS] q3_topology_graph.png 是否生成
+[PASS] q3_dynamic_best_path_by_departure.png 是否生成
+[PASS] q3_path_switching_map.png 是否生成
+[PASS] q3_path_stage_evolution.png 是否生成
+[PASS] q3_path_time_safety_scatter.png 是否生成
+[PASS] q3_replanning_timeline.png 是否生成
+[PASS] q3_replanning_timeline_30min.png 是否生成
+
+Total warnings: 0

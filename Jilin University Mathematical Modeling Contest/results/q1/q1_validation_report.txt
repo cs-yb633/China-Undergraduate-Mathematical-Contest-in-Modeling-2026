@@ -1,0 +1,23 @@
+Q1 final model validation report
+Output directory: C:\Users\马翌博\Documents\New project\results\q1
+
+[PASS] 主要输出文件是否完整 - all present
+[PASS] 是否成功读取附表1-4并完成输出 - q1核心输出已生成
+[PASS] 是否成功读取或生成简化拓扑
+[PASS] 拓扑图是否连通 - see q1_topology_notes.txt
+[PASS] slope_factor 是否生成 - count=8
+[PASS] lambda_topo 是否在合理范围 [0,0.20] - lambda_topo=3.307736600237143e-05
+[PASS] q1_depth_5min.csv contains 13 time points 0,5,...,60 - actual=[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60]
+[PASS] q1_depth_5min.csv contains L1-L8 - actual=['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8']
+[PASS] L5 峰值积水是否接近 32 cm - actual=32.0
+[PASS] L5 是否在峰值时段达到或接近中断状态 - capacity=0.0, safety=0.0
+[PASS] L5 是否为最高风险路段 - actual=L5
+[PASS] L2、L8 是否为高风险路段 - top3=['L2', 'L5', 'L8']
+[PASS] L7 是否为相对低风险路段 - risk_level=低风险, risk_rank=8
+[PASS] baseline 15/30/45/60 min 锚点误差 - rmse=7.0208, mae=3.6559, max_abs=24.0000
+[PASS] topo_corrected 15/30/45/60 min 锚点误差 - rmse=2.2563, mae=1.6507, max_abs=8.4197
+[PASS] 拓扑修正误差是否不劣于 baseline - baseline_rmse=7.0208, topo_rmse=2.2563; 拓扑修正主要增强空间解释性，误差未改善不影响程序运行。
+[PASS] 锚点残差校正后最终输出与附表4锚点误差小于 0.5 cm - rmse=0.000000, max_abs=0.000000
+[PASS] q1_results.xlsx exists with required sheets - sheets=['depth_5min', 'capacity_5min', 'safety_5min', 'risk_summary', 'rainfall_lag_analysis', 'model_parameters', 'depth_physical_5min', 'model_comparison']
+
+Total warnings: 0

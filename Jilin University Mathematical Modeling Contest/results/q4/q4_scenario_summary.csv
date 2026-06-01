@@ -1,0 +1,7 @@
+﻿item,value,description
+recommended_scheme,S054,TOPSIS 折中推荐方案
+baseline_R0,0.5712809523809523,第二问综合韧性基准
+recommended_R_new,0.7393115094926859,推荐方案改造后综合韧性
+recommended_Delta_R,0.16803055711173354,韧性提升量
+recommended_AnnualCost,157.0,年均成本，万元/年
+recommended_T_rec,36.720000000000006,重点路段加权消退时间
